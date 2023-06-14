@@ -1,0 +1,66 @@
+﻿<Window x:Class="Practical_6_WPF__Messenger_.UserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Practical_6_WPF__Messenger_"
+        mc:Ignorable="d"
+        Title="UserWindow" Height="450" Width="800"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*" MinWidth="200" MaxWidth="500"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button MinWidth="100" Content="Пользователи:" IsEnabled="False" Opacity="1"/>
+
+        <ListBox x:Name="Users_LBX" Grid.Row="1" Grid.RowSpan="2" />
+
+        <GridSplitter BorderThickness="0.1" BorderBrush="DarkGray" Grid.Column="1" ShowsPreview="False" ResizeBehavior="PreviousAndNext"  Width="1"
+        HorizontalAlignment="Center" VerticalAlignment="Stretch" Grid.RowSpan="3"/>
+
+
+        <Grid Grid.Row="0" Grid.Column="2" Grid.RowSpan="3">
+
+            <Grid.Background>
+                <ImageBrush ImageSource="/background tg.png" />
+            </Grid.Background>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.4*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Button Content="Выйти" Grid.Row="1" VerticalAlignment="Bottom"/>
+
+
+            <ListBox x:Name="MessageChat_LBX" Grid.ColumnSpan="3" Margin="35" Background="White">
+            </ListBox>
+
+            <TextBox x:Name="InputMessage_Box" Grid.Column="1" MinHeight="40" MaxHeight="150" Grid.Row="1" Padding="5"  HorizontalAlignment="Stretch"
+    Style="{StaticResource MaterialDesignFilledTextBox}"
+    AcceptsReturn="True"
+    TextWrapping="Wrap"
+                     Background="#ffff" Opacity="0.8"
+    materialDesign:HintAssist.Hint="Написать сообщение..."/>
+
+            <Button x:Name="Send_BTN" Content="Отправить" Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" Click="Send_BTN_Click"/>
+
+        </Grid>
+
+    </Grid>
+</Window>
